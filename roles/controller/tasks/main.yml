@@ -10,7 +10,7 @@
   become: yes
 
 - name: "simplify bft with a bin"
-  copy: src=bft dest=/usr/bin/bft mode=0755
+  template: src=bft.j2 dest=/usr/bin/bft mode=0755
   become: yes
 
 - name: "add test group"

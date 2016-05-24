@@ -1,0 +1,2 @@
+device_prefix: 'db120'
+boardfarm_config: /opt/boardfarm-controller-configs/db120/config.json

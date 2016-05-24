@@ -1,9 +1,12 @@
----
-# Here's what you modify when you want to customize your boardfarm build
 boardfarm_repo: https://github.com/ericschultz/boardfarm.git
 boardfarm_repo_branch: 'local_work'
+boardfarm_config: /opt/boardfarm/boardfarm_config_example.json #the default in-case
+boardfarm_controller_repo: https://github.com/prplfoundation/boardfarm-controller-configs.git
 
-#testing users on the controller
+ansible_ssh_user: pi
+
+
+#testing users on the controllers
 controller_users:
     - name: tester1
       authorized:

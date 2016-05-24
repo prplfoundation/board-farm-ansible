@@ -1,0 +1,6 @@
+- name: pull in boardfarm controllers configs
+  git:
+    repo: "{{ boardfarm_controller_repo }}"
+    dest: /opt/boardfarm-controller-configs
+    force: yes
+  become: yes

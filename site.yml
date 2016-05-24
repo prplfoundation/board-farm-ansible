@@ -2,31 +2,26 @@
 
 # This Playbook would deploy everything
 - hosts:
-    - "*-networked"
-    - "*-controller"
+    - "duts"
   roles:
     - common
+    - headless_raspi
     - { role: upgrade_and_reboot, when: upgrade_and_reboot is defined }
     - board_farm_git
 
-  vars_files:
-    - vars.yml
-
-- hosts: db120-networked
+- hosts: "*-networked"
   roles:
     - networked
 
-- hosts: db120-lan
+- hosts: "*-lan"
   roles:
     - lan_device
 
-- hosts: db120-wan
+- hosts: "*-wan"
   roles:
     - wan_device
 
-- hosts: db120-controller
+- hosts: "*-controller"
   roles:
+    - boardfarm_controller_git
     - controller
-  vars_files:
-    - vars.yml
-#- include: init_a_device.yml hosts_to_initialize=all

@@ -24,4 +24,5 @@
 - hosts: "*-controller"
   roles:
     - boardfarm_controller_git
+    - jenkins_client
     - controller

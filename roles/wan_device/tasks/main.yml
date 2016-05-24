@@ -1,0 +1,3 @@
+- name: install wan_setup on devices
+  shell: /opt/boardfarm/prepare_for_nonroot wan
+  become: yes

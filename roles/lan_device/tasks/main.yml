@@ -1,0 +1,14 @@
+- name: install lan_setup on devices
+  shell: /opt/boardfarm/prepare_for_nonroot lan
+  become: yes
+
+- name: copy over default route
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/network/if-up.d/"
+    owner: root
+    group: root
+    mode: "0755"
+  become: yes
+  with_fileglob:
+    - './set_default_local_area_route'

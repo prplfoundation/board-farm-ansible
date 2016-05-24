@@ -1,0 +1,30 @@
+---
+# This Playbook runs all the controller plays in the deployment
+
+- name: "add admin group if not there"
+  group: name=sudoers state=present
+  become: yes
+
+- name: "Install admin user if not there"
+  user: name="{{item.name}}" groups=sudoers append=yes
+  with_items: "{{ admin_users }}"
+  become: yes
+
+- name: 'Copy keys to admin'
+  authorized_key: user="{{item.0.name}}" key="{{ item.1 }}"
+  with_subelements:
+    - admin_users
+    - authorized
+  become: yes
+
+- name: 'added to sudoers for NOPASSWD'
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%sudoers*' line='%sudoers ALL=(ALL) NOPASSWD: ALL' validate='visudo -cf %s' backup=yes"
+  become: yes
+
+- name: "install python-apt"
+  shell: "apt-get -qq -y install python-apt"
+  become: yes
+
+- name: "install pip"
+  apt: pkg=python-pip state=installed update_cache=yes
+  become: yes

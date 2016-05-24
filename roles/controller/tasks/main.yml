@@ -1,0 +1,35 @@
+---
+- name: Install cu packages for serial port connecting
+  apt: pkg={{item}} state=installed
+  with_items:
+    - cu
+  become: yes
+
+- name: "make ttyUSB0 accessible to all users"
+  copy: src=60-ttyUSBx.rules dest=/etc/udev/rules.d/60-ttyUSBx.rules
+  become: yes
+
+- name: "simplify bft with a bin"
+  copy: src=bft dest=/usr/bin/bft mode=0755
+  become: yes
+
+- name: "add test group"
+  group: name=test
+  become: yes
+
+- name: "install experimenter users"
+  user: name="{{item.name}}" groups="test"
+  with_items: "{{controller_users}}"
+  become: yes
+
+- name: "add authorized keys for experimenter"
+  authorized_key: user="{{item.0.name}}" key="{{ item.1 }}"
+  with_subelements:
+    - controller_users
+    - authorized
+  become: yes
+
+
+- name: "limit test group to a single login"
+  copy: src=test_group_limit.conf dest="/etc/security/limits.d/test_group_limit.conf"
+  become: yes

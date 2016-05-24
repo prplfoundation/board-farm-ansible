@@ -1,0 +1,32 @@
+---
+
+# This Playbook would deploy everything
+- hosts:
+    - "*-networked"
+    - "*-controller"
+  roles:
+    - common
+    - { role: upgrade_and_reboot, when: upgrade_and_reboot is defined }
+    - board_farm_git
+
+  vars_files:
+    - vars.yml
+
+- hosts: db120-networked
+  roles:
+    - networked
+
+- hosts: db120-lan
+  roles:
+    - lan_device
+
+- hosts: db120-wan
+  roles:
+    - wan_device
+
+- hosts: db120-controller
+  roles:
+    - controller
+  vars_files:
+    - vars.yml
+#- include: init_a_device.yml hosts_to_initialize=all

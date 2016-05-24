@@ -21,10 +21,10 @@
   lineinfile: "dest=/etc/sudoers state=present regexp='^%sudoers*' line='%sudoers ALL=(ALL) NOPASSWD: ALL' validate='visudo -cf %s' backup=yes"
   become: yes
 
-- name: "install python-apt"
+- name: "install python-apt (needed for apt to work with ansible)"
   shell: "apt-get -qq -y install python-apt"
   become: yes
 
 - name: "install pip"
-  apt: pkg=python-pip state=installed update_cache=yes
+  apt: pkg=python-pip state=installed update_cache=yes cache_valid_time=3600
   become: yes

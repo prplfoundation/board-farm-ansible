@@ -1,0 +1,7 @@
+- name: remove unneeded x11 packages
+  apt:
+    pkg: "libx11-*"
+    state: absent
+    purge: yes
+    cache_valid_time: 3600
+  become: yes

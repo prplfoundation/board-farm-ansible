@@ -1,7 +1,7 @@
 boardfarm_repo: https://github.com/prplfoundation/boardfarm.git
 boardfarm_repo_branch: 'running'
 boardfarm_config: /opt/boardfarm/boardfarm_config_example.json #the default in-case
-boardfarm_controller_repo: https://github.com/ericschultz/boardfarm-controller-configs.git
+boardfarm_controller_repo: https://github.com/prplfoundation/boardfarm-controller-configs.git
 
 ansible_ssh_user: pi
 

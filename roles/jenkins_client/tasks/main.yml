@@ -1,3 +1,7 @@
 - name: "install openjdk-7-jre-headless"
-  apt: pkg=openjdk-7-jre-headless state=installed update_cache=yes cache_valid_time=3600
+  apt: name=openjdk-7-jre-headless state=present update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: correct java version selected
+  alternatives: name=java path=/usr/lib/jvm/java-7-openjdk-armhf/jre/bin/java
   become: yes

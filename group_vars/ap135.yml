@@ -1,0 +1,2 @@
+device_prefix: 'ap135'
+boardfarm_config: /opt/boardfarm-controller-configs/ap135/config.json

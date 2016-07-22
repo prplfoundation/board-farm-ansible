@@ -1,4 +1,4 @@
 - hosts:
     - "duts"
   roles:
-    - reboot
+    - common

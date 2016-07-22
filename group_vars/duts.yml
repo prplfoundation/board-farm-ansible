@@ -1,7 +1,7 @@
 boardfarm_repo: https://github.com/prplfoundation/boardfarm.git
 boardfarm_repo_branch: 'running'
 boardfarm_config: /opt/boardfarm/boardfarm_config_example.json #the default in-case
-boardfarm_controller_repo: https://github.com/prplfoundation/boardfarm-controller-configs.git
+boardfarm_controller_repo: https://github.com/ericschultz/boardfarm-controller-configs.git
 
 ansible_ssh_user: pi
 
@@ -21,3 +21,6 @@ admin_users:
   - name: pi
     authorized:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDN8Q277ayKtMyWxcPvFKevNl1U/k9Y94WRVFoRfognLWzahTp5xpZk1ToL2dOnlx6sZwHp+TR5u+eIRODNyvDoC8S+riKig3TLdHbqJCPgTfqheWqSPI5IsJkuMVfOMN4Fdkkbu3zEJdCU04epF/Shbv4Ekl5tjaIJaIRm2zj3imv/DafFQCFhjA9O2BdsP7LUbUPDAzC0lN9PXH8buf+3xiyVM1iYYPlgBssSmGIzMt+b921M3Zds6LZzVtbnaGJau4UMhCO+3QY2HM9swBAldBsapYQtS7taKuOSEKovhVQyCvUnuSffr38Bjbife+t9Q2YPtSrkyjqtS64r35rz eric@eric-HP-ENVY-17-Notebook-PC-Ubuntu
+  - name: mmcclintock
+    authorized:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0J2zhmwfQzOGkfvAtAIzbp1At7a4NnfzJIRpdLtv8I9oZWtPFAiUAH0O662T0Pfec1UiXzjJ8/EgWW+np5ikMESZOYdN/j7o6PwX71sREZrJu+b9u2CpRY15WEsmBBuVSbh5mQJPSBEKBBkO9LtfkVDkZI048AsO/TzH4s/7z8LvAlBPxt7Xs3upkhYJnRLZF6TGUmCPbMBfrYQ4Dr9IuSc24dE4CGbPt5mDkDgtIYwWdy6ZqcmYzuJEePjsEv9LV7KlnN0NBHD5szQYeTDP42r8LgOvk/G0/PoQeEzGNAtF4PhtwOwD7/ghXJNtu2TnzYobkmTufkJiJS+k/GMi5Q== mattsm@pandora

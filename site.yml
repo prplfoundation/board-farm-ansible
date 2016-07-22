@@ -6,7 +6,8 @@
   roles:
     - common
     - headless_raspi
-    - { role: upgrade_and_reboot, when: upgrade_and_reboot is defined }
+    - { role: upgrade, when: upgrade_and_reboot is defined }
+    - { role: reboot, when: upgrade_and_reboot is defined }
     - board_farm_git
 
 - hosts: "*-networked"
